@@ -26,6 +26,12 @@ export default {
       })
       .getModel()
       .once('change:open', () => editor.stopCommand(this.id));
+
+    var myHtml = editor.getHtml();
+    var myCss = editor.getCss();
+
+    // TODO: Create a POST Request using myHtml and myCss
+
     this.htmlEditor.setContent(editor.getHtml());
     this.cssEditor.setContent(editor.getCss());
   },
