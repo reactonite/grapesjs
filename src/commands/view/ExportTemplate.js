@@ -27,10 +27,21 @@ export default {
       .getModel()
       .once('change:open', () => editor.stopCommand(this.id));
 
-    var myHtml = editor.getHtml();
-    var myCss = editor.getCss();
+    var myHtml = encodeURI(editor.getHtml());
+    var myCss = encodeURI(editor.getCss());
 
-    // TODO: Create a POST Request using myHtml and myCss
+    var http = new XMLHttpRequest();
+
+    // TODO: Accept Port Number at run time
+
+    var url = 'http://localhost:5000/grapesjs';
+    var params = 'html=' + myHtml + '&css=' + myCss;
+
+    http.open('POST', url, true);
+
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    http.send(params);
 
     this.htmlEditor.setContent(editor.getHtml());
     this.cssEditor.setContent(editor.getCss());
