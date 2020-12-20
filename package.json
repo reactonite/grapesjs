@@ -1,10 +1,10 @@
 {
-  "name": "grapesjs",
-  "description": "Free and Open Source Web Builder Framework",
-  "version": "0.16.27",
-  "author": "Artur Arseniev",
+  "name": "grapesjs-reactonite",
+  "description": "Free and Open Source Web Builder Framework Wrapper for Reactonite",
+  "version": "0.1.1",
+  "author": "Chirag Jain",
   "license": "BSD-3-Clause",
-  "homepage": "http://grapesjs.com",
+  "homepage": "https://reactonite.github.io/",
   "main": "dist/grapes.min.js",
   "sideEffects": [
     "*.vue",
