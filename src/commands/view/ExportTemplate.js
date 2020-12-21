@@ -42,8 +42,8 @@ export default {
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     http.send(params);
-    this.htmlEditor.setContent(myHtml);
-    this.cssEditor.setContent(myCss);
+    this.htmlEditor.setContent(editor.getHtml());
+    this.cssEditor.setContent(editor.getCss());
   },
 
   stop(editor) {
