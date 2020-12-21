@@ -26,8 +26,24 @@ export default {
       })
       .getModel()
       .once('change:open', () => editor.stopCommand(this.id));
-    this.htmlEditor.setContent(editor.getHtml());
-    this.cssEditor.setContent(editor.getCss());
+
+    var myHtml = encodeURI(editor.getHtml());
+    var myCss = encodeURI(editor.getCss());
+
+    var http = new XMLHttpRequest();
+
+    // TODO: Accept Port Number at run time
+
+    var url = 'http://localhost:5000/grapesjs';
+    var params = 'html=' + myHtml + '&css=' + myCss;
+
+    http.open('POST', url, true);
+
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    http.send(params);
+    this.htmlEditor.setContent(myHtml);
+    this.cssEditor.setContent(myCss);
   },
 
   stop(editor) {
